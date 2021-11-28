@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 // eslint-disable-next-line
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Provider } from "react-redux";
 import { loadUser } from "./reduxStore/actions/auth";
 import store from "./reduxStore/store/store";
@@ -17,14 +17,14 @@ const App = () => {
   });
   return (
     <Provider store={store}>
-      <Router>
+      <BrowserRouter>
         <Menu />
         <Routes>
-          <Route exact path="/" element={Team} />
-          <Route exact path="/schedule" element={Schedule} />
+          <Route path="/" element={Team} />
+          <Route path="/schedule" element={Schedule} />
         </Routes>
         {/* <Navigate to="/home" /> */}
-      </Router>
+      </BrowserRouter>
     </Provider>
   );
 };

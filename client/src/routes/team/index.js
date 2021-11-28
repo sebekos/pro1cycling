@@ -1,7 +1,12 @@
 import React from "react";
+import Cover from "./Cover";
 
 const index = () => {
-  return <div>team</div>;
+  return (
+    <>
+      <Cover />
+    </>
+  );
 };
 
 export default index;

@@ -1,0 +1,49 @@
+.cover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-height: 1000px;
+}
+
+.coverImg {
+  object-fit: stretch;
+  @media (max-width: 853px) {
+    object-fit: cover;
+    max-height: 100vh;
+  }
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(216, 216, 216);
+  font-weight: bold;
+  @media (max-width: 853px) {
+    top: 50%;
+  }
+}
+
+.special {
+  margin-bottom: 50px;
+  font-size: 80px;
+  white-space: nowrap;
+  @media (max-width: 853px) {
+    font-size: 40px;
+  }
+}
+
+.nextSpecial {
+  font-size: 20px;
+  margin-top: 10px;
+  > a {
+    color: rgb(216, 216, 216);
+  }
+}
