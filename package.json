@@ -1,0 +1,41 @@
+{
+  "name": "pro1cycling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "postinstall": "cd client && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebekos/pro1cycling.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebekos/pro1cycling/issues"
+  },
+  "homepage": "https://github.com/sebekos/pro1cycling#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1037.0",
+    "axios": "^0.24.0",
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.7.2",
+    "concurrently": "^6.4.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.13.0",
+    "file-type": "^17.0.0",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "multiparty": "^4.2.2",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.12.0-alpha.1",
+    "uuidv4": "^6.2.12"
+  }
+}
