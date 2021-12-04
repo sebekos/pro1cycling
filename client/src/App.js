@@ -7,7 +7,7 @@ import store from "./reduxStore/store/store";
 import "./App.css";
 
 // Routes
-import { Menu } from "./components";
+import { Menu, Footer } from "./components";
 
 import { Team, Schedule } from "./routes";
 
@@ -20,10 +20,11 @@ const App = () => {
       <BrowserRouter>
         <Menu />
         <Routes>
-          <Route path="/" element={Team} />
-          <Route path="/schedule" element={Schedule} />
+          <Route exact path="/" element={<Team />} />
+          <Route path="/schedule" element={<Schedule />} />
         </Routes>
         {/* <Navigate to="/home" /> */}
+        <Footer />
       </BrowserRouter>
     </Provider>
   );

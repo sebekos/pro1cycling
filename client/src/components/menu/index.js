@@ -1,11 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line
 import styles from "./style.scss";
 
 const routes = [
-  { route: false, image: false, text: "LOGO" },
-  { route: "/", image: false, text: "TEAM" },
+  { route: false, image: false, text: "PRO1" },
+  { route: "/", image: false, text: "ABOUT" },
+  { route: "/team", image: false, text: "TEAM" },
   { route: "/schedule", image: false, text: "SCHEDULE" },
   { route: "/newsmedia", image: false, text: "NEWS/MEDIA" },
   { route: "/partners", image: false, text: "PARTNERS" },
@@ -17,7 +19,9 @@ const index = () => {
     <div className="container">
       <div className="item-container">
         {routes.map((o) => (
-          <div className="item">{o.text}</div>
+          <div className="item">
+            <Link to={`${o.route}`}>{o.text}</Link>
+          </div>
         ))}
       </div>
     </div>

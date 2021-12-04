@@ -3,9 +3,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+  letter-spacing: 0.05rem;
 }
 
 html {
   overflow-y: scroll;
+}
+
+body {
+  background-color: black;
 }
