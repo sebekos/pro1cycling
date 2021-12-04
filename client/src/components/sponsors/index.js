@@ -1,6 +1,9 @@
 import React from "react";
 import Sponsor1 from "img/sponsor1.jpg";
 
+// eslint-disable-next-line
+import styles from "./styles.scss";
+
 const sponsors = [
   {
     name: "Sponder1",

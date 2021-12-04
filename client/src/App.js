@@ -9,7 +9,7 @@ import "./App.css";
 // Routes
 import { Menu, Footer } from "./components";
 
-import { Team, Schedule } from "./routes";
+import { About, Team, Schedule, News } from "./routes";
 
 const App = () => {
   useEffect(() => {
@@ -20,8 +20,10 @@ const App = () => {
       <BrowserRouter>
         <Menu />
         <Routes>
-          <Route exact path="/" element={<Team />} />
+          <Route path="/" element={<About />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/schedule" element={<Schedule />} />
+          <Route path="/newsmedia" element={<News />} />
         </Routes>
         {/* <Navigate to="/home" /> */}
         <Footer />

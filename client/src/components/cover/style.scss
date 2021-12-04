@@ -1,0 +1,45 @@
+@import "styles/variables.scss";
+
+.pageCover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-height: 500px;
+}
+
+.pageCoverImg {
+  object-fit: stretch;
+  height: 100vh;
+  max-height: 1000px;
+  @media (max-width: 853px) {
+    object-fit: cover;
+    max-height: 100vh;
+  }
+}
+
+.pageCentered {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 50px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(216, 216, 216);
+  font-weight: bold;
+  @media (max-width: 853px) {
+    top: 50%;
+  }
+}
+
+.pageSpecial {
+  margin-bottom: 50px;
+  font-size: 80px;
+  white-space: nowrap;
+  @media (max-width: 853px) {
+    font-size: 40px;
+  }
+}

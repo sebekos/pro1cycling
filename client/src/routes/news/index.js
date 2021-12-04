@@ -45,15 +45,8 @@ const members = [
 const index = () => {
   return (
     <div>
-      <Cover text="TEAM" src={TeamImg} />
-      <Bar
-        title="TEAM"
-        text={`Stage wins in the Tour of Utah and Tour of Normandie, overall wins at
-        Cascade Cycling Classic, Redlands, and the grueling Tour de Beauce.
-        Multiple wins at Speed Week and a clean sweep at the Tour of Southern
-        Highlands. Whether we’re in the U.S. or Europe, stage races or crits, we
-        show up.`}
-      />
+      <Cover text="NEWS/MEDIA" src={TeamImg} />
+      <Bar title="NEWS/MEDIA" />
       <Grid data={members} />
       <Sponsors />
     </div>

@@ -1,0 +1,19 @@
+@import "styles/variables.scss";
+
+.table-container {
+  color: $font-color;
+}
+
+.table {
+  margin: 20px auto;
+  width: max-content;
+}
+
+.table > tr > td {
+  padding: 5px 10px;
+  width: 300px;
+}
+
+.table > tr > th {
+  color: $secondary-font-color;
+}
