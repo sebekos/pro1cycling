@@ -1,5 +1,5 @@
 import React from "react";
-import { Cover, Sponsors, Bar, Grid } from "components";
+import { Cover, Sponsors, Bar, Grid, List } from "components";
 import TeamImg from "img/team.jpg";
 import Avatar from "img/avatar.jpg";
 
@@ -42,11 +42,40 @@ const members = [
   },
 ];
 
+const cdata = [
+  {
+    title: "news media 1",
+    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
+    date: "2021-11-10",
+  },
+  {
+    title: "news media 1",
+    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
+    date: "2021-11-10",
+  },
+  {
+    title: "news media 1",
+    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
+    date: "2021-11-10",
+  },
+  {
+    title: "news media 1",
+    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
+    date: "2021-11-10",
+  },
+  {
+    title: "news media 1",
+    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
+    date: "2021-11-10",
+  },
+];
+
 const index = () => {
   return (
     <div>
       <Cover text="NEWS/MEDIA" src={TeamImg} />
       <Bar title="NEWS/MEDIA" />
+      <List data={cdata} />
       <Grid data={members} />
       <Sponsors />
     </div>

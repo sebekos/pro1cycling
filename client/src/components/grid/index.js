@@ -1,4 +1,5 @@
 import React from "react";
+import { uuid } from "utils";
 
 // eslint-disable-next-line
 import styles from "./styles.scss";
@@ -8,7 +9,10 @@ const index = ({ data }) => {
     <div className="grid-container">
       <div className="grid">
         {data.map((o) => (
-          <div className="griditem">
+          <div key={uuid()} className="griditem">
+            {o.hoverInfo && (
+              <div className="griditem-hoverinfo">{o.hoverInfo}</div>
+            )}
             <div className="griditem-img-container">
               <img
                 className="griditem-img"

@@ -9,6 +9,8 @@ const members = [
     lastName: "Kosela",
     title: "CEO",
     avatar_link: Avatar,
+    hoverInfo:
+      "This guy runs the company. He got a real estate business. House in poland.",
   },
   {
     firstName: "Andzje",
@@ -21,6 +23,8 @@ const members = [
     lastName: "Kosela",
     title: "Junior 17-18",
     avatar_link: Avatar,
+    hoverInfo:
+      "This dudes smashes beeches. Kid can squat ur gramma on 3 pl8. You need tren, this guy is a pharmacy, yoyo",
   },
   {
     firstName: "David",

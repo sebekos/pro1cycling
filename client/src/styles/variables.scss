@@ -18,3 +18,9 @@ a:visited {
   text-decoration: none;
   color: $font-color;
 }
+
+.active-link {
+  > a {
+    color: $secondary-color;
+  }
+}

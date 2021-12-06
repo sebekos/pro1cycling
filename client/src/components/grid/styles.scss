@@ -17,6 +17,8 @@
 .griditem {
   height: max-content;
   overflow: hidden;
+  border-radius: 2px;
+  position: relative;
 }
 
 .griditem-img-container {
@@ -28,10 +30,27 @@
   object-fit: cover;
 }
 
+.griditem-hoverinfo {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.25s linear;
+  width: 350px;
+  background-color: $font-color;
+  height: 300px;
+  padding: 10px;
+  font-weight: bold;
+}
+
 .griditem-info {
   background-color: $font-color;
   font-weight: bold;
   padding: 5px 10px;
+}
+
+.griditem:hover .griditem-hoverinfo {
+  visibility: visible;
+  opacity: 0.85;
 }
 
 .griditem-info1 {

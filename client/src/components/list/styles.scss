@@ -1,0 +1,43 @@
+@import "styles/variables.scss";
+
+// MEMBERS
+.list-container {
+  background-color: $secondary-color;
+}
+
+.list {
+  padding-top: 10px;
+  margin: auto;
+  max-width: 1000px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.listitem {
+  margin-bottom: 10px;
+  background-color: $font-color;
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.listitem:last-child {
+  margin-bottom: 0;
+}
+
+.list-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.list-text {
+  font-size: 15px;
+}
+
+.list-date {
+  width: 100%;
+  text-align: right;
+  margin-top: -6px;
+  font-size: 12px;
+  font-weight: bold;
+}
