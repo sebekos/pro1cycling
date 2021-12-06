@@ -1,5 +1,5 @@
 import React from "react";
-import { Cover, Sponsors, Bar, Grid, List } from "components";
+import { Cover, Sponsors, Bar, Grid, List, GenericButton } from "components";
 import TeamImg from "img/team.jpg";
 import Avatar from "img/avatar.jpg";
 
@@ -76,6 +76,7 @@ const index = () => {
       <Cover text="NEWS/MEDIA" src={TeamImg} />
       <Bar title="NEWS/MEDIA" />
       <List data={cdata} />
+      {/* <GenericButton label="Load more..." /> */}
       <Grid data={members} />
       <Sponsors />
     </div>

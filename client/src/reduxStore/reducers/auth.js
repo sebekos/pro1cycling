@@ -17,7 +17,6 @@ const initialState = {
   isAuth: 0,
   isRegister: false,
   loading: true,
-  login_errors: null,
   errors: null,
 };
 
@@ -59,7 +58,7 @@ function Auth(state = initialState, action) {
         userId: null,
         isAuth: 0,
         loading: false,
-        login_errors: payload,
+        errors: payload,
       };
     case REGISTER_FAIL:
     case LOGOUT:

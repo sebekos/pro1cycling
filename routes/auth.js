@@ -30,7 +30,10 @@ router.post(
   "/",
   [
     check("email", "Email is required").isEmail(),
-    check("password", "Please enter a password with 6 or more characters").isLength({ min: 6 }),
+    check(
+      "password",
+      "Please enter a password with 6 or more characters"
+    ).isLength({ min: 6 }),
   ],
   async (req, res) => {
     // Check inputs
@@ -43,21 +46,31 @@ router.post(
       // Find email
       const user = await User.findOne({ where: { email } });
       if (!user) {
-        return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Invalid credentials" }] });
       }
       // Check password
       const isEqual = await bcrypt.compare(password, user.password);
       if (!isEqual) {
-        return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Invalid credentials" }] });
       }
       // Check if verified
       if (!user.auth) {
-        return res.status(400).json({ errors: [{ msg: "Account not verified by admin" }] });
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Account not verified by admin" }] });
       }
       // Sign token
-      const token = jwt.sign({ userId: user.uuid, email: user.email, isAuth: user.auth }, process.env.jwtSecret, {
-        expiresIn: "1h", //1h
-      });
+      const token = jwt.sign(
+        { userId: user.uuid, email: user.email, isAuth: user.auth },
+        process.env.jwtSecret,
+        {
+          expiresIn: "1h", //1h
+        }
+      );
       const decoded = jwt.decode(token);
       const { userId, isAuth } = decoded;
       res.json({ token, email, userId, isAuth });

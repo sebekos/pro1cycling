@@ -9,7 +9,16 @@ import "./App.css";
 // Routes
 import { Menu, Footer } from "./components";
 
-import { About, Team, Schedule, News, Partners, Contact } from "./routes";
+import {
+  About,
+  Team,
+  Schedule,
+  News,
+  Partners,
+  Contact,
+  Login,
+  Dashboard,
+} from "./routes";
 
 const App = () => {
   useEffect(() => {
@@ -26,6 +35,8 @@ const App = () => {
           <Route path="/newsmedia" element={<News />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         {/* <Navigate to="/home" /> */}
         <Footer />
