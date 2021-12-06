@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "components";
+import { Table, Bar } from "components";
 
 const cdata = [
   {
@@ -61,10 +61,8 @@ const cdata = [
 const Schedule = () => {
   return (
     <div className="schedule-container">
-      <div className="schedule-title">UPCOMING RACES</div>
-      <div className="schedule">
-        <Table rows={cdata} />
-      </div>
+      <Bar title="UPCOMING RACES" />
+      <Table rows={cdata} />
     </div>
   );
 };

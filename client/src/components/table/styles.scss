@@ -2,18 +2,23 @@
 
 .table-container {
   color: $font-color;
+  width: max-content;
+  margin: auto;
 }
 
 .table {
-  margin: 20px auto;
   width: max-content;
+  background-color: black;
+  margin: 10px auto;
 }
 
 .table > tr > td {
   padding: 5px 10px;
   width: 300px;
+  border-bottom: 1px solid white;
 }
 
 .table > tr > th {
   color: $secondary-font-color;
+  border-bottom: 1px solid $secondary-font-color;
 }
