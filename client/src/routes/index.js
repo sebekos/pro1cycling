@@ -5,4 +5,4 @@ export { default as News } from "./news";
 export { default as Partners } from "./partners";
 export { default as Contact } from "./contact";
 export { default as Login } from "./login";
-export { default as Dashboard } from "./dashboard";
+export { default as EditTeam } from "./editteam";

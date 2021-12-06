@@ -1,10 +1,14 @@
 const Sequelize = require("sequelize");
 const UserModel = require("./models/user");
+const TeamModel = require("./models/team");
+
 const dotenv = require("dotenv");
 require("dotenv").config();
 
 const sequelize = new Sequelize(
-  process.env.NODE_ENV === "production" ? process.env.DATABASE_URL : process.env.MYSQL_DATABASE_URL,
+  process.env.NODE_ENV === "production"
+    ? process.env.DATABASE_URL
+    : process.env.MYSQL_DATABASE_URL,
   {
     dialect: "mysql",
     logging: false,
@@ -13,6 +17,7 @@ const sequelize = new Sequelize(
 );
 
 const User = UserModel(sequelize, Sequelize);
+const Team = TeamModel(sequelize, Sequelize);
 
 try {
   sequelize.sync();
@@ -24,5 +29,6 @@ try {
 
 module.exports = {
   User,
+  Team,
   sequelize,
 };

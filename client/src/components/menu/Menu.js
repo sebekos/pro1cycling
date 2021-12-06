@@ -1,6 +1,7 @@
 import React from "react";
 import { uuid } from "utils";
 import { Link, useLocation } from "react-router-dom";
+import { connect } from "react-redux";
 
 // eslint-disable-next-line
 import styles from "./style.scss";
@@ -15,12 +16,20 @@ const routes = [
   { route: "/contact", image: false, text: "CONTACT" },
 ];
 
-const Menu = () => {
+const adminRoutes = [
+  { route: "/editteam", image: false, text: "TEAM" },
+  { route: "/schedule", image: false, text: "SCHEDULE" },
+  { route: "/editnews", image: false, text: "NEWS/MEDIA" },
+  { route: "/editnews", image: false, text: "LOGOUT" },
+];
+
+const Menu = ({ isAuth }) => {
   const { pathname } = useLocation();
+  const renderRoutes = isAuth ? adminRoutes : routes;
   return (
     <div className="container">
       <div className="item-container">
-        {routes.map((o) => (
+        {renderRoutes.map((o) => (
           <div
             key={uuid()}
             className={`item ${pathname === o.route ? "active-link" : ""}`}
@@ -35,4 +44,8 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+});
+
+export default connect(mapStateToProps, null)(Menu);

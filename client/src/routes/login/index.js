@@ -24,7 +24,7 @@ const Login = ({ register, login, loading, errors, isAuth }) => {
 
   const { email, password, password2, register_key } = form;
 
-  if (isAuth) return <Navigate to="/dashboard" />;
+  if (isAuth) return <Navigate to="/editteam" />;
 
   return (
     <div className="login-container">
