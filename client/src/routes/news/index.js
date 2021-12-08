@@ -1,86 +1,30 @@
-import React from "react";
-import { Cover, Sponsors, Bar, Grid, List, GenericButton } from "components";
+import React, { useEffect } from "react";
+import { Cover, Sponsors, Bar, List } from "components";
 import TeamImg from "img/team.jpg";
-import Avatar from "img/avatar.jpg";
+import { connect } from "react-redux";
+import { loadNews } from "reduxStore";
 
-const members = [
-  {
-    firstName: "Wojciech",
-    lastName: "Kosela",
-    title: "CEO",
-    avatar_link: Avatar,
-  },
-  {
-    firstName: "Andzje",
-    lastName: "Something",
-    title: "Coach",
-    avatar_link: Avatar,
-  },
-  {
-    firstName: "David",
-    lastName: "Kosela",
-    title: "Junior 17-18",
-    avatar_link: Avatar,
-  },
-  {
-    firstName: "David",
-    lastName: "Kosela",
-    title: "Junior 17-18",
-    avatar_link: Avatar,
-  },
-  {
-    firstName: "David",
-    lastName: "Kosela",
-    title: "Junior 17-18",
-    avatar_link: Avatar,
-  },
-  {
-    firstName: "David",
-    lastName: "Kosela",
-    title: "Junior 17-18",
-    avatar_link: Avatar,
-  },
-];
-
-const cdata = [
-  {
-    title: "news media 1",
-    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
-    date: "2021-11-10",
-  },
-  {
-    title: "news media 1",
-    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
-    date: "2021-11-10",
-  },
-  {
-    title: "news media 1",
-    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
-    date: "2021-11-10",
-  },
-  {
-    title: "news media 1",
-    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
-    date: "2021-11-10",
-  },
-  {
-    title: "news media 1",
-    text: "askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa askmk klmlkmkl klmckmsacsa lk;l; klckas;lkcascas csacc cs scs casa",
-    date: "2021-11-10",
-  },
-];
-
-const index = () => {
+const News = ({ loadNews, news }) => {
+  useEffect(() => {
+    loadNews();
+    // eslint-disable-next-line
+  }, []);
   return (
     <div>
       <Cover text="NEWS/MEDIA" src={TeamImg} />
       <Bar title="NEWS/MEDIA" />
-      <List data={cdata} />
-      {/* <GenericButton label="Load more..." /> */}
-      <Grid data={members} />
+      <List data={news} />
       <Sponsors />
     </div>
   );
 };
 
-export default index;
+const mapStateToProps = (state) => ({
+  news: state.news.news,
+});
+
+const mapDispatchToProps = {
+  loadNews,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(News);

@@ -1,5 +1,4 @@
 import React from "react";
-import TeamImg from "img/aboutteam.png";
 
 const About = () => {
   return (
@@ -19,9 +18,7 @@ const About = () => {
           </div>
         </div>
         <div className="about-right">
-          <div className="about-right-img-container">
-            <img className="about-right-img" alt="team" src={TeamImg} />
-          </div>
+          <div className="about-right-img-container"></div>
         </div>
       </div>
     </div>

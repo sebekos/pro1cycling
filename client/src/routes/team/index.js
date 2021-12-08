@@ -1,52 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Cover, Sponsors, Bar, Grid } from "components";
+import { connect } from "react-redux";
+import { loadTeam } from "reduxStore";
 import TeamImg from "img/team.jpg";
-import Avatar from "img/avatar.jpg";
 
-const members = [
-  {
-    firstName: "Wojciech",
-    lastName: "Kosela",
-    title: "CEO",
-    avatar_link: Avatar,
-    hoverInfo:
-      "This guy runs the company. He got a real estate business. House in poland.",
-  },
-  {
-    firstName: "Andzje",
-    lastName: "Something",
-    title: "Coach",
-    avatar_link: Avatar,
-  },
-  {
-    firstName: "David",
-    lastName: "Kosela",
-    title: "Junior 17-18",
-    avatar_link: Avatar,
-    hoverInfo:
-      "This dudes smashes beeches. Kid can squat ur gramma on 3 pl8. You need tren, this guy is a pharmacy, yoyo",
-  },
-  {
-    firstName: "David",
-    lastName: "Kosela",
-    title: "Junior 17-18",
-    avatar_link: Avatar,
-  },
-  {
-    firstName: "David",
-    lastName: "Kosela",
-    title: "Junior 17-18",
-    avatar_link: Avatar,
-  },
-  {
-    firstName: "David",
-    lastName: "Kosela",
-    title: "Junior 17-18",
-    avatar_link: Avatar,
-  },
-];
-
-const index = () => {
+const Team = ({ loadTeam, team }) => {
+  useEffect(() => {
+    loadTeam();
+    // eslint-disable-next-line
+  }, []);
   return (
     <div>
       <Cover text="TEAM" src={TeamImg} />
@@ -58,10 +20,18 @@ const index = () => {
         Highlands. Whether we’re in the U.S. or Europe, stage races or crits, we
         show up.`}
       />
-      <Grid data={members} />
+      <Grid data={team} />
       <Sponsors />
     </div>
   );
 };
 
-export default index;
+const mapStateToProps = (state) => ({
+  team: state.team.team,
+});
+
+const mapDispatchToProps = {
+  loadTeam,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Team);

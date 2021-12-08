@@ -2,43 +2,56 @@ import React from "react";
 import { uuid } from "utils";
 import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
+import { logout } from "reduxStore";
+import Pro1Logo from "img/pro1cyclinglogo.png";
 
 // eslint-disable-next-line
 import styles from "./style.scss";
 
 const routes = [
-  // { route: false, image: false, text: "PRO1" },
+  { route: "", image: Pro1Logo, text: "PRO1" },
   { route: "/", image: false, text: "ABOUT" },
   { route: "/team", image: false, text: "TEAM" },
   { route: "/schedule", image: false, text: "SCHEDULE" },
   { route: "/newsmedia", image: false, text: "NEWS/MEDIA" },
   { route: "/partners", image: false, text: "PARTNERS" },
-  { route: "/contact", image: false, text: "CONTACT" },
+  // { route: "/contact", image: false, text: "CONTACT" },
 ];
 
 const adminRoutes = [
   { route: "/editteam", image: false, text: "TEAM" },
-  { route: "/schedule", image: false, text: "SCHEDULE" },
+  { route: "/editschedule", image: false, text: "SCHEDULE" },
   { route: "/editnews", image: false, text: "NEWS/MEDIA" },
-  { route: "/editnews", image: false, text: "LOGOUT" },
+  { route: "/editnews", image: false, text: "LOGOUT", useLogout: true },
 ];
 
-const Menu = ({ isAuth }) => {
+const Menu = ({ isAuth, logout }) => {
   const { pathname } = useLocation();
   const renderRoutes = isAuth ? adminRoutes : routes;
   return (
     <div className="container">
       <div className="item-container">
-        {renderRoutes.map((o) => (
-          <div
-            key={uuid()}
-            className={`item ${pathname === o.route ? "active-link" : ""}`}
-          >
-            <Link to={`${o.route}`} onClick={() => window.scrollTo(0, 0)}>
-              {o.text}
-            </Link>
-          </div>
-        ))}
+        {renderRoutes.map((o) =>
+          o.route ? (
+            <div
+              key={uuid()}
+              className={`item ${pathname === o.route ? "active-link" : ""}`}
+            >
+              <Link
+                to={`${o.route}`}
+                onClick={() => (o.useLogout ? logout() : window.scrollTo(0, 0))}
+              >
+                {o.text}
+              </Link>
+            </div>
+          ) : (
+            <div key={uuid()} className="menu-logo-container">
+              <Link to={`/`} onClick={() => window.scrollTo(0, 0)}>
+                <img className="menu-logo-img" alt="Pro1" src={o.image} />
+              </Link>
+            </div>
+          )
+        )}
       </div>
     </div>
   );
@@ -48,4 +61,8 @@ const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
 });
 
-export default connect(mapStateToProps, null)(Menu);
+const mapDispatchToProps = {
+  logout,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

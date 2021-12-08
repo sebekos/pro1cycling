@@ -1,5 +1,6 @@
 import React from "react";
 import { uuid } from "utils";
+import Avatar from "img/avatar.jpg";
 
 // eslint-disable-next-line
 import styles from "./styles.scss";
@@ -10,20 +11,20 @@ const index = ({ data }) => {
       <div className="grid">
         {data.map((o) => (
           <div key={uuid()} className="griditem">
-            {o.hoverInfo && (
-              <div className="griditem-hoverinfo">{o.hoverInfo}</div>
-            )}
+            {o.info && <div className="griditem-hoverinfo">{o.info}</div>}
             <div className="griditem-img-container">
               <img
                 className="griditem-img"
                 alt="griditem"
-                src={o.avatar_link}
+                src={o.avatar_link ? o.avatar_link : Avatar}
               />
             </div>
             <div className="griditem-info">
-              <div className="griditem-info1">
-                {o.firstName} {o.lastName}
-              </div>
+              {o.firstName || o.lastName ? (
+                <div className="griditem-info1">
+                  {o.firstName} {o.lastName}
+                </div>
+              ) : null}
               <div className="griditem-info2">{o.title}</div>
             </div>
           </div>

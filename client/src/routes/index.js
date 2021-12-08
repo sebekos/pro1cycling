@@ -6,3 +6,5 @@ export { default as Partners } from "./partners";
 export { default as Contact } from "./contact";
 export { default as Login } from "./login";
 export { default as EditTeam } from "./editteam";
+export { default as EditSchedule } from "./editschedule";
+export { default as EditNews } from "./editnews";

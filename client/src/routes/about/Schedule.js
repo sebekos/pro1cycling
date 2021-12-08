@@ -1,70 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Table, Bar } from "components";
+import { connect } from "react-redux";
+import { loadSchedule } from "reduxStore";
 
-const cdata = [
-  {
-    name: "Tour of Southern Highlands",
-    startDate: "2021-10-10",
-    endDate: "2021-10-12",
-    results: "Results...",
-  },
-  {
-    name: "Tour of Southern Highlands",
-    startDate: "2021-10-10",
-    endDate: "2021-10-12",
-    results: "Results...",
-  },
-  {
-    name: "Tour of Southern Highlands",
-    startDate: "2021-10-10",
-    endDate: "2021-10-12",
-    results: "Results...",
-  },
-  {
-    name: "Tour of Southern Highlands",
-    startDate: "2021-10-10",
-    endDate: "2021-10-12",
-    results: "Results...",
-  },
-  {
-    name: "Tour of Southern Highlands",
-    startDate: "2021-10-10",
-    endDate: "2021-10-12",
-    results: "Results...",
-  },
-  {
-    name: "Tour of Southern Highlands",
-    startDate: "2021-10-10",
-    endDate: "2021-10-12",
-    results: "Results...",
-  },
-  {
-    name: "Tour of Southern Highlands",
-    startDate: "2021-10-10",
-    endDate: "2021-10-12",
-    results: "Results...",
-  },
-  {
-    name: "Tour of Southern Highlands",
-    startDate: "2021-10-10",
-    endDate: "2021-10-12",
-    results: "Results...",
-  },
-  {
-    name: "Tour of Southern Highlands",
-    startDate: "2021-10-10",
-    endDate: "2021-10-12",
-    results: "Results...",
-  },
-];
-
-const Schedule = () => {
+const Schedule = ({ loadSchedule, schedule }) => {
+  useEffect(() => {
+    loadSchedule();
+    // eslint-disable-next-line
+  }, []);
   return (
     <div className="schedule-container">
       <Bar title="UPCOMING RACES" />
-      <Table rows={cdata} />
+      <Table rows={schedule} />
     </div>
   );
 };
 
-export default Schedule;
+const mapStateToProps = (state) => ({
+  schedule: state.schedule.schedule,
+});
+
+const mapDispatchToProps = {
+  loadSchedule,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Schedule);

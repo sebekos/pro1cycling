@@ -1,62 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { loadTeam, updateTeam } from "reduxStore";
+import { loadNews, updateNews } from "reduxStore";
 import { Input, GenericButton } from "components";
 
 // eslint-disable-next-line
 import styles from "./styles.scss";
 
-const EditMember = ({ member, errors, updateTeam }) => {
+const EditSchedule = ({ news, errors, updateNews }) => {
   const [form, setForm] = useState({
-    id: member.id,
-    firstName: member.firstName,
-    lastName: member.lastName,
-    title: member.title,
-    info: member.info,
+    id: news.id,
+    date: news.date,
+    title: news.title,
+    text: news.text,
   });
 
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const onSubmit = () => updateTeam(form);
+  const onSubmit = () => updateNews(form);
 
-  const onDelete = () => updateTeam({ ...form, deleted: 1 });
+  const onDelete = () => updateNews({ ...form, deleted: 1 });
 
-  const { firstName, lastName, title, info } = form;
+  const { date, title, text } = form;
 
   return (
     <div className="editteam-container">
       <div className="editteam">
         <Input
-          name="firstName"
-          type="text"
-          placeholder="First name"
-          value={firstName}
+          name="date"
+          type="date"
+          placeholder="Start Date"
+          value={date}
           onChange={onChange}
-          error={errors && errors.find((o) => o.param === "firstName")}
-        />
-        <Input
-          name="lastName"
-          type="text"
-          placeholder="Last name"
-          value={lastName}
-          onChange={onChange}
-          error={errors && errors.find((o) => o.param === "lastName")}
+          error={errors && errors.find((o) => o.param === "date")}
         />
         <Input
           name="title"
           type="text"
-          placeholder="Title"
+          placeholder="Race"
           value={title}
           onChange={onChange}
           error={errors && errors.find((o) => o.param === "title")}
         />
         <Input
-          name="info"
+          name="text"
           type="text"
-          placeholder="Info"
-          value={info}
+          placeholder="Location"
+          value={text}
           onChange={onChange}
-          error={errors && errors.find((o) => o.param === "info")}
+          error={errors && errors.find((o) => o.param === "text")}
         />
         <div className="editmember-btns-container">
           <GenericButton label="Delete" onClick={onDelete} color="negative" />
@@ -67,18 +58,18 @@ const EditMember = ({ member, errors, updateTeam }) => {
   );
 };
 
-const Members = ({ loadTeam, loading, team, updateTeam }) => {
+const Members = ({ loadNews, loading, news, updateNews }) => {
   useEffect(() => {
-    loadTeam();
+    loadNews();
     // eslint-disable-next-line
   }, []);
   return (
     <div className="member-container">
-      {team.map((o) => (
-        <EditMember
-          key={`editmember-${o.id}`}
-          member={o}
-          updateTeam={updateTeam}
+      {news.map((o) => (
+        <EditSchedule
+          key={`editnews-${o.id}`}
+          news={o}
+          updateNews={updateNews}
         />
       ))}
     </div>
@@ -86,13 +77,13 @@ const Members = ({ loadTeam, loading, team, updateTeam }) => {
 };
 
 const mapStateToProps = (state) => ({
-  team: state.team.team,
-  loading: state.team.loading,
+  news: state.news.news,
+  loading: state.news.loading,
 });
 
 const mapDispatchToProps = {
-  loadTeam,
-  updateTeam,
+  loadNews,
+  updateNews,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Members);

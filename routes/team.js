@@ -27,8 +27,8 @@ router.post(
     auth,
     check("firstName", "First name is required").isLength({ min: 3 }),
     check("lastName", "Last name is required").isLength({ min: 3 }),
-    check("title", "Title is required").isLength({ min: 5 }),
-    check("info", "Info is required").isLength({ min: 5 }),
+    check("title", "Title is required").isLength({ min: 3 }),
+    check("info", "Info is required").isLength({ min: 3 }),
   ],
   async (req, res) => {
     // Check inputs
@@ -37,7 +37,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, title, info } = req.body;
+    const { id, firstName, lastName, title, info, deleted } = req.body;
 
     // Setup team object
     let teamFields = {
@@ -45,13 +45,14 @@ router.post(
       lastName,
       title,
       info,
+      deleted: deleted ? 1 : 0,
     };
 
     try {
       // Update if exists, else create new
-      let user = await Team.findOne({ where: { firstName, lastName } });
+      let user = id ? await Team.findOne({ where: { id } }) : null;
       if (user) {
-        user = await Team.update(teamFields, { where: { id: user.id } });
+        user = await Team.update(teamFields, { where: { id } });
       } else {
         user = await Team.create(teamFields);
       }

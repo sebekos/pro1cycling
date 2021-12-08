@@ -17,8 +17,9 @@ import {
   Partners,
   Contact,
   Login,
-  Dashboard,
   EditTeam,
+  EditSchedule,
+  EditNews,
 } from "./routes";
 
 const App = () => {
@@ -38,6 +39,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/editteam" element={<EditTeam />} />
+          <Route path="/editschedule" element={<EditSchedule />} />
+          <Route path="/editnews" element={<EditNews />} />
         </Routes>
         {/* <Navigate to="/home" /> */}
         <Footer />

@@ -85,9 +85,15 @@
 }
 
 .about-right-img-container {
-  max-height: 250px;
-  max-width: 600px;
-  overflow: hidden;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 500px,
+      $secondary-color 590px,
+      $secondary-color 600px
+    ),
+    url(../../img/aboutteam.png) no-repeat;
+  height: 250px;
+  width: 600px;
 }
 
 .about-right-img {

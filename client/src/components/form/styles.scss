@@ -1,7 +1,10 @@
+@import "styles/variables.scss";
+
 .form-input-container {
   width: 100%;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-content: center;
   align-items: center;
 }
@@ -17,4 +20,12 @@
 
 .form-input-error {
   border: 2px solid rgba(223, 16, 16, 0.527);
+}
+
+.form-input-label {
+  color: $font-color;
+  text-align: left;
+  width: 100%;
+  padding-left: 5px;
+  font-size: 14px;
 }

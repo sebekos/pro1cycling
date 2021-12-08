@@ -1,5 +1,6 @@
 import React from "react";
 import { uuid } from "utils";
+import moment from "moment";
 
 // eslint-disable-next-line
 import styles from "./styles.scss";
@@ -20,9 +21,10 @@ const index = ({ rows, max }) => {
           {rows.map((o) => (
             <tr key={uuid()}>
               <td>
-                {o.startDate} - {o.endDate}
+                {moment(o.startDate).format("l")} -{" "}
+                {moment(o.endDate).format("l")}
               </td>
-              <td>{o.name}</td>
+              <td>{o.race}</td>
               <td>{o.location}</td>
               <td>{o.results}</td>
             </tr>

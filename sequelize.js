@@ -1,6 +1,8 @@
 const Sequelize = require("sequelize");
 const UserModel = require("./models/user");
 const TeamModel = require("./models/team");
+const ScheduleModel = require("./models/schedule");
+const NewsModel = require("./models/news");
 
 const dotenv = require("dotenv");
 require("dotenv").config();
@@ -18,6 +20,8 @@ const sequelize = new Sequelize(
 
 const User = UserModel(sequelize, Sequelize);
 const Team = TeamModel(sequelize, Sequelize);
+const Schedule = ScheduleModel(sequelize, Sequelize);
+const News = NewsModel(sequelize, Sequelize);
 
 try {
   sequelize.sync();
@@ -30,5 +34,7 @@ try {
 module.exports = {
   User,
   Team,
+  Schedule,
+  News,
   sequelize,
 };
