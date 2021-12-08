@@ -1,11 +1,13 @@
 import React from "react";
 import { uuid } from "utils";
 import moment from "moment";
+import { Loader } from "components";
 
 // eslint-disable-next-line
 import styles from "./styles.scss";
 
-const index = ({ rows, max }) => {
+const index = ({ rows, max, loading }) => {
+  if (loading) return <Loader />;
   return (
     <div className="table-container">
       <table className="table">

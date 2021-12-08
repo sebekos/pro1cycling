@@ -13,7 +13,7 @@ const routes = [
   { route: "/", image: false, text: "ABOUT" },
   { route: "/team", image: false, text: "TEAM" },
   { route: "/schedule", image: false, text: "SCHEDULE" },
-  { route: "/newsmedia", image: false, text: "NEWS/MEDIA" },
+  { route: "/newsmedia", image: false, text: "NEWS" },
   { route: "/partners", image: false, text: "PARTNERS" },
   // { route: "/contact", image: false, text: "CONTACT" },
 ];
@@ -21,7 +21,7 @@ const routes = [
 const adminRoutes = [
   { route: "/editteam", image: false, text: "TEAM" },
   { route: "/editschedule", image: false, text: "SCHEDULE" },
-  { route: "/editnews", image: false, text: "NEWS/MEDIA" },
+  { route: "/editnews", image: false, text: "NEWS" },
   { route: "/editnews", image: false, text: "LOGOUT", useLogout: true },
 ];
 

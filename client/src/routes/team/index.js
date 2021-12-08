@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { loadTeam } from "reduxStore";
 import TeamImg from "img/team.jpg";
 
-const Team = ({ loadTeam, team }) => {
+const Team = ({ loadTeam, team, loading }) => {
   useEffect(() => {
     loadTeam();
     // eslint-disable-next-line
@@ -20,7 +20,7 @@ const Team = ({ loadTeam, team }) => {
         Highlands. Whether we’re in the U.S. or Europe, stage races or crits, we
         show up.`}
       />
-      <Grid data={team} />
+      <Grid data={team} loading={loading} />
       <Sponsors />
     </div>
   );
@@ -28,6 +28,7 @@ const Team = ({ loadTeam, team }) => {
 
 const mapStateToProps = (state) => ({
   team: state.team.team,
+  loading: state.team.loading,
 });
 
 const mapDispatchToProps = {

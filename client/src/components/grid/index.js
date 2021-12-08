@@ -1,11 +1,13 @@
 import React from "react";
 import { uuid } from "utils";
 import Avatar from "img/avatar.jpg";
+import { Loader } from "components";
 
 // eslint-disable-next-line
 import styles from "./styles.scss";
 
-const index = ({ data }) => {
+const index = ({ data, loading }) => {
+  if (loading) return <Loader />;
   return (
     <div className="grid-container">
       <div className="grid">

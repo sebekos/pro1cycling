@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { loadSchedule } from "reduxStore";
 import TeamImg from "img/team.jpg";
 
-const Schedule = ({ loadSchedule, schedule }) => {
+const Schedule = ({ loadSchedule, schedule, loading }) => {
   useEffect(() => {
     loadSchedule();
     // eslint-disable-next-line
@@ -13,7 +13,7 @@ const Schedule = ({ loadSchedule, schedule }) => {
     <div>
       <Cover text="TEAM" src={TeamImg} />
       <Bar title="RACE SCHEDULE" />
-      <Table rows={schedule} />
+      <Table rows={schedule} loading={loading} />
       <Sponsors />
     </div>
   );
@@ -21,6 +21,7 @@ const Schedule = ({ loadSchedule, schedule }) => {
 
 const mapStateToProps = (state) => ({
   schedule: state.schedule.schedule,
+  loading: state.schedule.loading,
 });
 
 const mapDispatchToProps = {

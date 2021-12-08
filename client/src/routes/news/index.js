@@ -4,7 +4,7 @@ import TeamImg from "img/team.jpg";
 import { connect } from "react-redux";
 import { loadNews } from "reduxStore";
 
-const News = ({ loadNews, news }) => {
+const News = ({ loadNews, news, loading }) => {
   useEffect(() => {
     loadNews();
     // eslint-disable-next-line
@@ -13,7 +13,7 @@ const News = ({ loadNews, news }) => {
     <div>
       <Cover text="NEWS/MEDIA" src={TeamImg} />
       <Bar title="NEWS/MEDIA" />
-      <List data={news} />
+      <List data={news} loading={loading} />
       <Sponsors />
     </div>
   );
@@ -21,6 +21,7 @@ const News = ({ loadNews, news }) => {
 
 const mapStateToProps = (state) => ({
   news: state.news.news,
+  loading: state.news.loading,
 });
 
 const mapDispatchToProps = {
