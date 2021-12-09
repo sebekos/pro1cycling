@@ -3,7 +3,7 @@ import { Table, Bar } from "components";
 import { connect } from "react-redux";
 import { loadSchedule } from "reduxStore";
 
-const Schedule = ({ loadSchedule, schedule, firstLoad }) => {
+const Schedule = ({ loadSchedule, schedule, firstLoad, loading }) => {
   useEffect(() => {
     !firstLoad && loadSchedule();
     // eslint-disable-next-line
@@ -11,7 +11,7 @@ const Schedule = ({ loadSchedule, schedule, firstLoad }) => {
   return (
     <div className="schedule-container">
       <Bar title="UPCOMING RACES" />
-      <Table rows={schedule} />
+      <Table rows={schedule} loading={loading} />
     </div>
   );
 };
@@ -19,6 +19,7 @@ const Schedule = ({ loadSchedule, schedule, firstLoad }) => {
 const mapStateToProps = (state) => ({
   schedule: state.schedule.schedule,
   firstLoad: state.schedule.firstLoad,
+  loading: state.schedule.loading,
 });
 
 const mapDispatchToProps = {

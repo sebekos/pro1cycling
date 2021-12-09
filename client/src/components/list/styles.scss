@@ -41,3 +41,11 @@
   font-size: 12px;
   font-weight: bold;
 }
+
+.list-no-rows {
+  background-color: $secondary-color;
+  color: $font-color;
+  text-align: center;
+  font-size: 30px;
+  padding: 100px 0;
+}
