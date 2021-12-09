@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line
 import styles from "./style.scss";
@@ -13,7 +14,7 @@ const index = () => {
           <div className="footer-info">
             <div>pro1realtyinc@gmail.com</div>
             <div>630-202-3494</div>
-            <div>Chicagoland Area</div>
+            <Link to="/login">Chicagoland Area</Link>
           </div>
         </div>
       </div>
