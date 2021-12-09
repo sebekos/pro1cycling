@@ -11,6 +11,7 @@ const initialState = {
   loading: true,
   errors: null,
   success: false,
+  firstLoad: false,
 };
 
 function Team(state = initialState, action) {
@@ -27,6 +28,7 @@ function Team(state = initialState, action) {
         ...state,
         team: payload,
         loading: false,
+        firstLoad: true,
       };
     case TEAM_UPDATE_SUCCESS:
       return {

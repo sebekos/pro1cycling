@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { loadTeam } from "reduxStore";
 import TeamImg from "img/team.jpg";
 
-const Team = ({ loadTeam, team, loading }) => {
+const Team = ({ loadTeam, team, loading, firstLoad }) => {
   useEffect(() => {
-    loadTeam();
+    !firstLoad && loadTeam();
     // eslint-disable-next-line
   }, []);
   return (
@@ -29,6 +29,7 @@ const Team = ({ loadTeam, team, loading }) => {
 const mapStateToProps = (state) => ({
   team: state.team.team,
   loading: state.team.loading,
+  firstLoad: state.team.firstLoad,
 });
 
 const mapDispatchToProps = {

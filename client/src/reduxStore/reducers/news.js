@@ -11,6 +11,7 @@ const initialState = {
   loading: true,
   errors: null,
   success: false,
+  firstLoad: false,
 };
 
 function News(state = initialState, action) {
@@ -27,6 +28,7 @@ function News(state = initialState, action) {
         ...state,
         news: payload,
         loading: false,
+        firstLoad: true,
       };
     case NEWS_UPDATE_SUCCESS:
       return {

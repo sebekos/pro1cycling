@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { loadSchedule } from "reduxStore";
 import TeamImg from "img/team.jpg";
 
-const Schedule = ({ loadSchedule, schedule, loading }) => {
+const Schedule = ({ loadSchedule, schedule, loading, firstLoad }) => {
   useEffect(() => {
-    loadSchedule();
+    !firstLoad && loadSchedule();
     // eslint-disable-next-line
   }, []);
   return (
@@ -22,6 +22,7 @@ const Schedule = ({ loadSchedule, schedule, loading }) => {
 const mapStateToProps = (state) => ({
   schedule: state.schedule.schedule,
   loading: state.schedule.loading,
+  firstLoad: state.schedule.firstLoad,
 });
 
 const mapDispatchToProps = {

@@ -3,9 +3,9 @@ import { Table, Bar } from "components";
 import { connect } from "react-redux";
 import { loadSchedule } from "reduxStore";
 
-const Schedule = ({ loadSchedule, schedule }) => {
+const Schedule = ({ loadSchedule, schedule, firstLoad }) => {
   useEffect(() => {
-    loadSchedule();
+    !firstLoad && loadSchedule();
     // eslint-disable-next-line
   }, []);
   return (
@@ -18,6 +18,7 @@ const Schedule = ({ loadSchedule, schedule }) => {
 
 const mapStateToProps = (state) => ({
   schedule: state.schedule.schedule,
+  firstLoad: state.schedule.firstLoad,
 });
 
 const mapDispatchToProps = {

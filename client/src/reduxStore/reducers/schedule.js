@@ -11,6 +11,7 @@ const initialState = {
   loading: true,
   errors: null,
   success: false,
+  firstLoad: false,
 };
 
 function Schedule(state = initialState, action) {
@@ -27,6 +28,7 @@ function Schedule(state = initialState, action) {
         ...state,
         schedule: payload,
         loading: false,
+        firstLoad: true,
       };
     case SCHEDULE_UPDATE_SUCCESS:
       return {
