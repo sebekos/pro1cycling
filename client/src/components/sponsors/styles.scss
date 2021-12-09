@@ -29,6 +29,9 @@
     linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
   background-size: 10px 10px, 10px 10px, 10px 5px;
   background-position: 0px 0px, 5px 5px, 0px 0px;
+  @media only screen and (max-width: 1000px) {
+    height: 100px;
+  }
 }
 
 .sponsors {
@@ -44,4 +47,7 @@
 .sponsor-img {
   width: 150px;
   margin: 0 30px;
+  @media only screen and (max-width: 1000px) {
+    width: 100px;
+  }
 }

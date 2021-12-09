@@ -33,6 +33,9 @@
   margin: 30px;
   font-size: 40px;
   font-weight: bold;
+  @media only screen and (max-width: 1000px) {
+    font-size: 30px;
+  }
 }
 
 .team-bar-text {

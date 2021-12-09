@@ -13,9 +13,9 @@
   object-fit: stretch;
   height: 100vh;
   max-height: 1000px;
-  @media (max-width: 853px) {
+  @media (max-width: 1000px) {
     object-fit: cover;
-    max-height: 100vh;
+    max-height: 50vh;
   }
 }
 
@@ -30,7 +30,7 @@
   transform: translate(-50%, -50%);
   color: rgb(216, 216, 216);
   font-weight: bold;
-  @media (max-width: 853px) {
+  @media (max-width: 1000px) {
     top: 50%;
   }
 }
@@ -39,7 +39,7 @@
   margin-bottom: 50px;
   font-size: 80px;
   white-space: nowrap;
-  @media (max-width: 853px) {
+  @media (max-width: 1000px) {
     font-size: 40px;
   }
 }

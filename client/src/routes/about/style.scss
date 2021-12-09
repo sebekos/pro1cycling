@@ -17,7 +17,7 @@
   object-fit: stretch;
   height: 100vh;
   max-height: 1000px;
-  @media (max-width: 853px) {
+  @media (max-width: 1000px) {
     object-fit: cover;
     max-height: 100vh;
   }
@@ -34,7 +34,7 @@
   transform: translate(-50%, -50%);
   color: rgb(216, 216, 216);
   font-weight: bold;
-  @media (max-width: 853px) {
+  @media (max-width: 1000px) {
     top: 50%;
   }
 }
@@ -43,7 +43,7 @@
   margin-bottom: 50px;
   font-size: 80px;
   white-space: nowrap;
-  @media (max-width: 853px) {
+  @media (max-width: 1000px) {
     font-size: 40px;
   }
 }
@@ -68,10 +68,14 @@
 
 .about {
   display: grid;
-  grid-template-columns: 600px 600px;
-  max-width: 1200px;
+  grid-template-columns: 500px 500px;
+  max-width: 1000px;
   color: $font-color;
   align-items: center;
+  @media only screen and (max-width: 1000px) {
+    display: flex;
+    padding: 20px;
+  }
 }
 
 .about-left {
@@ -82,22 +86,28 @@
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 20px;
+  @media only screen and (max-width: 1000px) {
+    text-align: center;
+  }
 }
 
 .about-right-img-container {
   background: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0) 500px,
-      $secondary-color 590px,
-      $secondary-color 600px
+      rgba(255, 255, 255, 0) 400px,
+      $secondary-color 490px,
+      $secondary-color 500px
     ),
     url(../../img/aboutteam.png) no-repeat;
   height: 250px;
-  width: 600px;
+  width: 500px;
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
 }
 
 .about-right-img {
-  width: 600px;
+  width: 500px;
 }
 
 // ---------------------------------------------------
