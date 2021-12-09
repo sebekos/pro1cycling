@@ -16,7 +16,6 @@
 .coverImg {
   object-fit: stretch;
   height: 100vh;
-  max-height: 1000px;
   @media (max-width: 1000px) {
     object-fit: cover;
     max-height: 100vh;
