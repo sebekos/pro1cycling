@@ -14,11 +14,11 @@ const Team = ({ loadTeam, team, loading, firstLoad }) => {
       <Cover text="TEAM" src={TeamImg} />
       <Bar
         title="TEAM"
-        text={`Stage wins in the Tour of Utah and Tour of Normandie, overall wins at
-        Cascade Cycling Classic, Redlands, and the grueling Tour de Beauce.
-        Multiple wins at Speed Week and a clean sweep at the Tour of Southern
-        Highlands. Whether we’re in the U.S. or Europe, stage races or crits, we
-        show up.`}
+        // text={`Stage wins in the Tour of Utah and Tour of Normandie, overall wins at
+        // Cascade Cycling Classic, Redlands, and the grueling Tour de Beauce.
+        // Multiple wins at Speed Week and a clean sweep at the Tour of Southern
+        // Highlands. Whether we’re in the U.S. or Europe, stage races or crits, we
+        // show up.`}
       />
       <Grid data={team} loading={loading} />
       <Sponsors />
