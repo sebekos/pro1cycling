@@ -28,6 +28,8 @@ const adminRoutes = [
 const Menu = ({ isAuth, logout }) => {
   const { pathname } = useLocation();
   const renderRoutes = isAuth ? adminRoutes : routes;
+  const curRoute = renderRoutes.find((o) => o.route === pathname);
+  console.log("curRoute", curRoute);
   return (
     <div className="container">
       <div className="item-container">
@@ -52,6 +54,30 @@ const Menu = ({ isAuth, logout }) => {
             </div>
           )
         )}
+      </div>
+      <div className="item-container-dropdown">
+        <div className="menu-logo-dropdown">
+          <img className="menu-logo-img" alt="Pro1" src={Pro1Logo} />
+        </div>
+        <div className="dropdown">
+          <div>
+            <button className="dropbtn">{curRoute.text}</button>
+          </div>
+          <div className="dropdown-content">
+            {renderRoutes
+              .filter((o) => o.route)
+              .map((o) => (
+                <Link
+                  to={`${o.route}`}
+                  onClick={() =>
+                    o.useLogout ? logout() : window.scrollTo(0, 0)
+                  }
+                >
+                  {o.text}
+                </Link>
+              ))}
+          </div>
+        </div>
       </div>
     </div>
   );
