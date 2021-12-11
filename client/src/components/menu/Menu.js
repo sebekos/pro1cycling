@@ -22,7 +22,7 @@ const adminRoutes = [
   { route: "/editteam", image: false, text: "TEAM" },
   { route: "/editschedule", image: false, text: "SCHEDULE" },
   { route: "/editnews", image: false, text: "NEWS" },
-  { route: "/editnews", image: false, text: "LOGOUT", useLogout: true },
+  { route: "/login", image: false, text: "LOGOUT", useLogout: true },
 ];
 
 const Menu = ({ isAuth, logout }) => {

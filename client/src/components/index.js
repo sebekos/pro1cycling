@@ -6,6 +6,7 @@ export { default as Table } from "./table";
 export { default as Bar } from "./bar";
 export { default as Grid } from "./grid";
 export { default as List } from "./list";
+export { default as PrivateRoute } from "./privateroute";
 export * from "./buttons";
 export * from "./form";
 export * from "./errors";

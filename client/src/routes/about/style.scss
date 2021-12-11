@@ -91,7 +91,12 @@
 }
 
 .about-right-img-container {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 400px, $secondary-color 490px, $secondary-color 500px),
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 400px,
+      $secondary-color 490px,
+      $secondary-color 500px
+    ),
     url(../../img/aboutteam.jpeg) no-repeat;
   height: 250px;
   width: 500px;

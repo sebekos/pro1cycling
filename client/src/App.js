@@ -7,7 +7,7 @@ import store from "./reduxStore/store/store";
 import "./App.css";
 
 // Routes
-import { Menu, Footer } from "./components";
+import { Menu, Footer, PrivateRoute } from "./components";
 
 import {
   About,
