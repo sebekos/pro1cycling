@@ -6,7 +6,8 @@ const Cover = () => {
     <div className="cover">
       <img className="coverImg" src={LandingImg} alt="AiBC" />
       <div className="centered">
-        <div className="special">PRO 1 CYCLING TEAM</div>
+        <div className="special">PRO 1 REALTY</div>
+        <div className="nextSpecial">CYCLYING TEAM</div>
         {/* <div className="nextSpecial">
           <a href="tel:630-930-8572">(630) 930-8572</a>
         </div> */}
