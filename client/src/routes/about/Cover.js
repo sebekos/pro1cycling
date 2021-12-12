@@ -4,7 +4,6 @@ import LandingImg from "img/landing.jpg";
 const Cover = () => {
   return (
     <div className="cover">
-      <div className="overlay"></div>
       <img className="coverImg" src={LandingImg} alt="AiBC" />
       <div className="centered">
         <div className="special">PRO 1 REALTY</div>
