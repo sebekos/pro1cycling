@@ -12,7 +12,7 @@ const index = () => {
         <div className="footer">
           <div className="footer-title">PRO 1 REALTY CYCLYING Team</div>
           <div className="footer-info">
-            <div>pro1realtyinc@gmail.com</div>
+            <div>pro1rct@gmail.com</div>
             <div>630-202-3494</div>
             <Link to="/login">Chicagoland Area</Link>
           </div>

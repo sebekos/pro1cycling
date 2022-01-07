@@ -6,12 +6,15 @@ import {
   NEWS_UPDATE_SUCCESS,
 } from "../constants/constants";
 
+import { uuid } from "utils";
+
 const initialState = {
   news: [],
   loading: true,
   errors: null,
   success: false,
   firstLoad: false,
+  refresh: null,
 };
 
 function News(state = initialState, action) {
@@ -34,6 +37,7 @@ function News(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        refresh: uuid(),
       };
     case NEWS_ERROR:
       return {

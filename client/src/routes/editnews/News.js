@@ -58,14 +58,17 @@ const EditSchedule = ({ news, errors, updateNews }) => {
   );
 };
 
-const Members = ({ loadNews, loading, news, updateNews }) => {
+const Members = ({ loadNews, loading, news, updateNews, refresh }) => {
   useEffect(() => {
     loadNews();
     // eslint-disable-next-line
-  }, []);
+  }, [refresh]);
+
+  const sortedNews = news.sort((a, b) => b.id - a.id);
+
   return (
     <div className="member-container">
-      {news.map((o) => (
+      {sortedNews.map((o) => (
         <EditSchedule
           key={`editnews-${o.id}`}
           news={o}
@@ -79,6 +82,7 @@ const Members = ({ loadNews, loading, news, updateNews }) => {
 const mapStateToProps = (state) => ({
   news: state.news.news,
   loading: state.news.loading,
+  refresh: state.news.refresh,
 });
 
 const mapDispatchToProps = {

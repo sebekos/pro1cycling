@@ -76,14 +76,23 @@ const EditSchedule = ({ schedule, errors, updateSchedule }) => {
   );
 };
 
-const Members = ({ loadSchedule, loading, schedule, updateSchedule }) => {
+const Members = ({
+  loadSchedule,
+  loading,
+  schedule,
+  updateSchedule,
+  refresh,
+}) => {
   useEffect(() => {
     loadSchedule();
     // eslint-disable-next-line
-  }, []);
+  }, [refresh]);
+
+  const sortedSchdule = schedule.sort((a, b) => b.id - a.id);
+
   return (
     <div className="member-container">
-      {schedule.map((o) => (
+      {sortedSchdule.map((o) => (
         <EditSchedule
           key={`editschedule-${o.id}`}
           schedule={o}
@@ -97,6 +106,7 @@ const Members = ({ loadSchedule, loading, schedule, updateSchedule }) => {
 const mapStateToProps = (state) => ({
   schedule: state.schedule.schedule,
   loading: state.schedule.loading,
+  refresh: state.schedule.refresh,
 });
 
 const mapDispatchToProps = {

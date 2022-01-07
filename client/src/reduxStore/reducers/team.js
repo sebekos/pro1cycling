@@ -6,12 +6,15 @@ import {
   TEAM_UPDATE_SUCCESS,
 } from "../constants/constants";
 
+import { uuid } from "utils";
+
 const initialState = {
   team: [],
   loading: true,
   errors: null,
   success: false,
   firstLoad: false,
+  refresh: null,
 };
 
 function Team(state = initialState, action) {
@@ -34,6 +37,7 @@ function Team(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        refresh: uuid(),
       };
     case TEAM_ERROR:
       return {
