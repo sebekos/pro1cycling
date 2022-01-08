@@ -29,5 +29,9 @@ module.exports = (sequelize, type) => {
       type: type.INTEGER,
       defaultValue: 0,
     },
+    sort: {
+      type: type.INTEGER,
+      defaultValue: 999,
+    },
   });
 };

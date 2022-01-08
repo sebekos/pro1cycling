@@ -11,9 +11,13 @@ const { Team } = require("../sequelize");
 // @access      public
 router.get("/", async (req, res) => {
   try {
-    const team = await Team.findAll({ where: { deleted: 0 } });
+    const team = await Team.findAll({
+      where: { deleted: 0 },
+      order: [["sort", "ASC"]],
+    });
     res.json(team);
   } catch (err) {
+    console.log("err", err);
     res.status(500).send("Server Error");
   }
 });
