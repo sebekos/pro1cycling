@@ -3,7 +3,7 @@ import { uuid } from "utils";
 import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "reduxStore";
-import Pro1Logo from "img/pro1cyclinglogo.png";
+import Pro1Logo from "img/fulllogo.png";
 
 // eslint-disable-next-line
 import styles from "./style.scss";

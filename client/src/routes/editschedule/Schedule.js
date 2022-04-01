@@ -6,7 +6,7 @@ import { Input, GenericButton } from "components";
 // eslint-disable-next-line
 import styles from "./styles.scss";
 
-const EditSchedule = ({ schedule, errors, updateSchedule }) => {
+const EditSchedule = ({ schedule, errors, updateSchedule, loading }) => {
   const [form, setForm] = useState({
     id: schedule.id,
     startDate: schedule.startDate,
@@ -25,25 +25,10 @@ const EditSchedule = ({ schedule, errors, updateSchedule }) => {
   const { startDate, endDate, race, location, results } = form;
 
   return (
-    <div className="editteam-container">
-      <div className="editteam">
+    <div className="editschedule-container">
+      <div className="editschedule">
         <Input
-          name="startDate"
-          type="date"
-          placeholder="Start Date"
-          value={startDate}
-          onChange={onChange}
-          error={errors && errors.find((o) => o.param === "startDate")}
-        />
-        <Input
-          name="endDate"
-          type="date"
-          placeholder="End Date"
-          value={endDate}
-          onChange={onChange}
-          error={errors && errors.find((o) => o.param === "endDate")}
-        />
-        <Input
+          className="editSchedule-input"
           name="race"
           type="text"
           placeholder="Race"
@@ -52,6 +37,25 @@ const EditSchedule = ({ schedule, errors, updateSchedule }) => {
           error={errors && errors.find((o) => o.param === "race")}
         />
         <Input
+          className="editSchedule-input"
+          name="startDate"
+          type="date"
+          placeholder="Start Date"
+          value={startDate}
+          onChange={onChange}
+          error={errors && errors.find((o) => o.param === "startDate")}
+        />
+        <Input
+          className="editSchedule-input"
+          name="endDate"
+          type="date"
+          placeholder="End Date"
+          value={endDate}
+          onChange={onChange}
+          error={errors && errors.find((o) => o.param === "endDate")}
+        />
+        <Input
+          className="editSchedule-input"
           name="location"
           type="text"
           placeholder="Location"
@@ -60,6 +64,7 @@ const EditSchedule = ({ schedule, errors, updateSchedule }) => {
           error={errors && errors.find((o) => o.param === "location")}
         />
         <Input
+          className="editSchedule-input"
           name="results"
           type="text"
           placeholder="Results"
@@ -68,8 +73,13 @@ const EditSchedule = ({ schedule, errors, updateSchedule }) => {
           error={errors && errors.find((o) => o.param === "results")}
         />
         <div className="editmember-btns-container">
-          <GenericButton label="Delete" onClick={onDelete} color="negative" />
-          <GenericButton label="Submit" onClick={onSubmit} />
+          <GenericButton
+            loading={loading}
+            label="Delete"
+            onClick={onDelete}
+            color="negative"
+          />
+          <GenericButton loading={loading} label="Submit" onClick={onSubmit} />
         </div>
       </div>
     </div>
@@ -97,6 +107,7 @@ const Members = ({
           key={`editschedule-${o.id}`}
           schedule={o}
           updateSchedule={updateSchedule}
+          loading={loading}
         />
       ))}
     </div>

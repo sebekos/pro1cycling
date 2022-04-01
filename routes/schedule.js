@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const auth = require("../middleware/auth");
+const moment = require("moment");
 require("dotenv").config();
 
 const { Schedule } = require("../sequelize");
@@ -11,9 +12,17 @@ const { Schedule } = require("../sequelize");
 // @access      public
 router.get("/", async (req, res) => {
   try {
-    const schedule = await Schedule.findAll({ where: { deleted: 0 } });
-    res.json(schedule);
+    const schedule = await Schedule.findAll({
+      where: { deleted: 0 },
+    });
+    let ret = schedule.map((o) => ({
+      ...o,
+      startDate: moment(o.startDate).utc().format("YYYY-MM-DD"),
+      endDate: moment(o.endDate).utc().format("YYYY-MM-DD"),
+    }));
+    res.json(ret);
   } catch (err) {
+    console.log(err);
     res.status(500).send("Server Error");
   }
 });

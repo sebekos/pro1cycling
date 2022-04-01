@@ -4,6 +4,16 @@
 // COVER
 // ---------------------------------------------------
 
+.fulllogo-cover-mp {
+  width: 400px;
+  @media (max-width: 800px) {
+    width: 300px;
+  }
+  @media (max-width: 400px) {
+    width: 200px;
+  }
+}
+
 .cover {
   position: relative;
   display: flex;
