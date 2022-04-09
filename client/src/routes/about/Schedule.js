@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Table, Bar } from "components";
 import { connect } from "react-redux";
 import { loadSchedule } from "reduxStore";
+import moment from "moment";
 
 const Schedule = ({ loadSchedule, schedule, firstLoad, loading }) => {
   useEffect(() => {
@@ -9,10 +10,14 @@ const Schedule = ({ loadSchedule, schedule, firstLoad, loading }) => {
     // eslint-disable-next-line
   }, []);
 
+  var cSchedule = schedule.filter((o) =>
+    moment(o.endDate, "YYYY-MM-DD").isSameOrAfter(moment(), "day")
+  );
+
   return (
     <div className="schedule-container">
       <Bar title="UPCOMING RACES" />
-      <Table rows={schedule} loading={loading} />
+      <Table rows={cSchedule} loading={loading} maxCols={3} />
     </div>
   );
 };
