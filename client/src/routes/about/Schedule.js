@@ -8,6 +8,7 @@ const Schedule = ({ loadSchedule, schedule, firstLoad, loading }) => {
     !firstLoad && loadSchedule();
     // eslint-disable-next-line
   }, []);
+
   return (
     <div className="schedule-container">
       <Bar title="UPCOMING RACES" />

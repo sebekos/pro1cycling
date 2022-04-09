@@ -14,6 +14,7 @@ router.get("/", async (req, res) => {
   try {
     const schedule = await Schedule.findAll({
       where: { deleted: 0 },
+      order: [["startDate", "ASC"]],
     });
     let ret = schedule.map((o) => ({
       ...o,
