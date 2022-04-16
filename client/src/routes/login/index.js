@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, GenericButton } from "components";
+import { Input, GenericButton, Loader } from "components";
 import { connect } from "react-redux";
 import { register, login } from "reduxStore";
 import { Navigate } from "react-router";
@@ -28,8 +28,12 @@ const Login = ({ register, login, loading, errors, isAuth }) => {
 
   return (
     <div className="login-container">
+      {loading && <Loader float />}
       <div className="login">
         <div className="login-title">{logreg ? "Register" : "Login"}</div>
+        {errors &&
+          errors.length > 0 &&
+          errors.map((o) => <div style={{ color: "red" }}>{o.msg}</div>)}
         <Input
           name="email"
           type="text"
@@ -65,7 +69,12 @@ const Login = ({ register, login, loading, errors, isAuth }) => {
             />
           </>
         )}
-        <GenericButton label="Submit" onClick={onSubmit} disabled={loading} />
+        <GenericButton
+          label="Submit"
+          onClick={onSubmit}
+          disabled={loading}
+          loading={loading}
+        />
         <div className="rl" onClick={() => setLogReg(!logreg)}>
           RL
         </div>

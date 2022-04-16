@@ -7,6 +7,7 @@ import {
 } from "../constants/constants";
 
 import { uuid } from "utils";
+import { v4 } from "uuid";
 
 const initialState = {
   team: [],
@@ -15,6 +16,7 @@ const initialState = {
   success: false,
   firstLoad: false,
   refresh: null,
+  error_id: null,
 };
 
 function Team(state = initialState, action) {
@@ -37,12 +39,15 @@ function Team(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        refresh: uuid(),
+        refresh: v4(),
+        errors: null,
+        error_id: false,
       };
     case TEAM_ERROR:
       return {
         ...state,
-        errors: payload,
+        errors: payload && payload.errors,
+        error_id: payload && payload.error_id,
         loading: false,
       };
     default:

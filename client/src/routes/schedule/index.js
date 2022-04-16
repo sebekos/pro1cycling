@@ -13,7 +13,9 @@ const Schedule = ({ loadSchedule, schedule, loading, firstLoad }) => {
 
   var cSchedule = schedule.map((o) => ({
     ...o,
-    className: moment(o.endDate).isSameOrAfter(moment()) ? "nextRaces" : null,
+    className: moment(o.endDate, "YYYY-MM-DD").isSameOrAfter(moment(), "day")
+      ? "nextRaces"
+      : null,
   }));
 
   return (

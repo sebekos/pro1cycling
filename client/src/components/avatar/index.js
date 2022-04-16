@@ -22,7 +22,7 @@ const Avatar = ({ memberId, avatar_link, updateAvatar }) => {
         border: "1px solid black",
       }}
     >
-      <AvatarImageCropper apply={apply} />
+      <AvatarImageCropper apply={apply} maxsize={20000000} />
     </div>
   );
 };

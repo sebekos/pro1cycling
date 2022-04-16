@@ -23,8 +23,8 @@ const EditSchedule = ({ news, errors, updateNews }) => {
   const { date, title, text } = form;
 
   return (
-    <div className="editteam-container">
-      <div className="editteam">
+    <div className="editnews-container">
+      <div className="editnews">
         <Input
           name="date"
           type="date"

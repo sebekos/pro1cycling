@@ -39,8 +39,10 @@ export const updateTeam = (form) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    const errors = err.response.data.errors;
     dispatch({
       type: TEAM_ERROR,
+      payload: { errors, error_id: form.id },
     });
   }
 };
@@ -59,8 +61,10 @@ export const updateAvatar = (formData) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    const errors = err.response.data.errors;
     dispatch({
       type: TEAM_ERROR,
+      errors,
     });
   }
 };

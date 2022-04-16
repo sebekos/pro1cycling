@@ -1,13 +1,12 @@
 import React from "react";
-import LoaderGif from "img/loader.gif";
 
 // eslint-disable-next-line
 import styles from "./styles.scss";
 
-const Loader = () => {
+const Loader = ({ float }) => {
   return (
-    <div className="loader-container">
-      <img className="loader-gif" alt="loading..." src={LoaderGif} />
+    <div className={`loader-container ${float && "loader-float"}`}>
+      <div className="loader"></div>
     </div>
   );
 };

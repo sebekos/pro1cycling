@@ -20,9 +20,9 @@ const AddMember = ({ errors, loading, updateNews }) => {
   const { date, title, text } = form;
 
   return (
-    <div className="editteam-container">
-      <div className="editteam">
-        <div className="editteam-title">Add News</div>
+    <div className="editnews-container">
+      <div className="editnews">
+        <div className="editnews-title">Add News</div>
         <Input
           name="date"
           type="date"

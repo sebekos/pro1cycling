@@ -1,11 +1,11 @@
 @import "styles/variables.scss";
 
-.editteam-container {
+.editnews-container {
   display: flex;
   padding-top: 100px;
 }
 
-.editteam {
+.editnews {
   margin: auto;
   position: relative;
   border: 1px solid $font-color;
@@ -39,7 +39,7 @@
   background-position: 0px 0px, 5px 5px, 0px 0px;
 }
 
-.editteam-title {
+.editnews-title {
   color: $font-color;
   font-weight: bold;
   font-size: 24px;

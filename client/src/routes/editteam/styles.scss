@@ -5,6 +5,10 @@
   padding-top: 100px;
 }
 
+.editteam-list {
+  margin-top: 20px;
+}
+
 .editteam {
   margin: auto;
   position: relative;
@@ -13,10 +17,9 @@
   padding: 10px;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  gap: 10px;
   justify-items: center;
-  width: 100%;
-  max-width: 400px;
+  width: max-content;
   background-color: rgb(32, 32, 32);
   background-image: linear-gradient(
       45deg,
@@ -39,17 +42,54 @@
   background-position: 0px 0px, 5px 5px, 0px 0px;
 }
 
+.editteam-inputs-container {
+  width: 400px;
+}
+
 .editteam-title {
   color: $font-color;
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .member {
   color: $font-color;
 }
 
-.editmember-btns-container {
+.add-editteam {
+  border: 1px solid $font-color;
+  border-radius: 2px;
+  padding: 0 5px 5px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+  width: 800px;
+  margin: auto;
+  background-color: rgb(32, 32, 32);
+  background-image: linear-gradient(
+      45deg,
+      black 25%,
+      transparent 25%,
+      transparent 75%,
+      black 75%,
+      black
+    ),
+    linear-gradient(
+      45deg,
+      black 25%,
+      transparent 25%,
+      transparent 75%,
+      black 75%,
+      black
+    ),
+    linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
+  background-size: 10px 10px, 10px 10px, 10px 5px;
+  background-position: 0px 0px, 5px 5px, 0px 0px;
+}
+
+.add-editteam-inputs {
   display: flex;
 }

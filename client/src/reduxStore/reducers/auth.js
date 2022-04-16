@@ -27,6 +27,7 @@ function Auth(state = initialState, action) {
       return {
         ...state,
         loading: true,
+        errors: null,
       };
     case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token);
@@ -34,6 +35,7 @@ function Auth(state = initialState, action) {
       return {
         ...state,
         ...payload,
+        errors: null,
         loading: false,
       };
     case REGISTER_USER:
