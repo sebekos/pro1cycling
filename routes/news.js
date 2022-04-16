@@ -26,8 +26,8 @@ router.post(
   [
     auth,
     check("date", "Date is required").isLength({ min: 3 }),
-    check("title", "Last name is required").isLength({ min: 3 }),
-    check("text", "Title is required").isLength({ min: 5 }),
+    check("title", "Title is required").isLength({ min: 3 }),
+    check("text", "Text is required").isLength({ min: 5 }),
   ],
   async (req, res) => {
     // Check inputs

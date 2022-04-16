@@ -39,8 +39,13 @@ export const updateNews = (form) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    const errors = err.response.data.errors;
     dispatch({
       type: NEWS_ERROR,
+      payload: {
+        errors,
+        error_id: form.id,
+      },
     });
   }
 };

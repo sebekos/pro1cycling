@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Input, GenericButton } from "components";
 import { updateSchedule } from "reduxStore";
@@ -7,7 +7,7 @@ import { v4 } from "uuid";
 // eslint-disable-next-line
 import styles from "./styles.scss";
 
-const AddMember = ({ errors, error_id, loading, updateSchedule }) => {
+const AddMember = ({ errors, error_id, loading, updateSchedule, refresh }) => {
   const [form, setForm] = useState({
     startDate: "",
     endDate: "",
@@ -21,6 +21,16 @@ const AddMember = ({ errors, error_id, loading, updateSchedule }) => {
   const onSubmit = () => updateSchedule(form);
 
   const { startDate, endDate, race, location, results } = form;
+
+  useEffect(() => {
+    setForm({
+      startDate: "",
+      endDate: "",
+      race: "",
+      location: "",
+      results: "",
+    });
+  }, [refresh]);
 
   return (
     <div className="add-editschedule-container">
@@ -90,6 +100,7 @@ const mapStateToProps = (state) => ({
   loading: state.schedule.loading,
   errors: state.schedule.errors,
   error_id: state.schedule.error_id,
+  refresh: state.schedule.refresh,
 });
 
 const mapDispatchToProps = { updateSchedule };

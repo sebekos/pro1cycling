@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Input, GenericButton } from "components";
 import { updateTeam } from "reduxStore";
@@ -7,7 +7,7 @@ import { v4 } from "uuid";
 // eslint-disable-next-line
 import styles from "./styles.scss";
 
-const AddMember = ({ errors, loading, updateTeam, error_id }) => {
+const AddMember = ({ errors, loading, updateTeam, error_id, refresh }) => {
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -20,6 +20,15 @@ const AddMember = ({ errors, loading, updateTeam, error_id }) => {
   const onSubmit = () => updateTeam(form);
 
   const { firstName, lastName, title, info } = form;
+
+  useEffect(() => {
+    setForm({
+      firstName: "",
+      lastName: "",
+      title: "",
+      info: "",
+    });
+  }, [refresh]);
 
   return (
     <div className="editteam-container">
@@ -81,6 +90,7 @@ const mapStateToProps = (state) => ({
   loading: state.team.loading,
   errors: state.team.errors,
   error_id: state.team.error_id,
+  refresh: state.team.refresh,
 });
 
 const mapDispatchToProps = { updateTeam };

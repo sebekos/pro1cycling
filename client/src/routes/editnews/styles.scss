@@ -2,7 +2,7 @@
 
 .editnews-container {
   display: flex;
-  padding-top: 100px;
+  margin-top: 20px;
 }
 
 .editnews {
@@ -48,8 +48,4 @@
 
 .member {
   color: $font-color;
-}
-
-.editmember-btns-container {
-  display: flex;
 }
