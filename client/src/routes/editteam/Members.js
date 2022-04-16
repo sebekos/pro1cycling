@@ -30,8 +30,6 @@ const EditMember = ({ member, errors, updateTeam, error_id }) => {
     setCAvatar(member.avatar_link);
   }, [member.avatar_link]);
 
-  console.log("AVATAR LINK", member.avatar_link);
-
   return (
     <div className="editteam-list">
       <div className="editteam">

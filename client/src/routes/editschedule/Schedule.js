@@ -2,11 +2,18 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { loadSchedule, updateSchedule } from "reduxStore";
 import { Input, GenericButton } from "components";
+import { v4 } from "uuid";
 
 // eslint-disable-next-line
 import styles from "./styles.scss";
 
-const EditSchedule = ({ schedule, errors, updateSchedule, loading }) => {
+const EditSchedule = ({
+  schedule,
+  errors,
+  error_id,
+  updateSchedule,
+  loading,
+}) => {
   const [form, setForm] = useState({
     id: schedule.id,
     startDate: schedule.startDate,
@@ -22,11 +29,23 @@ const EditSchedule = ({ schedule, errors, updateSchedule, loading }) => {
 
   const onDelete = () => updateSchedule({ ...form, deleted: 1 });
 
-  const { startDate, endDate, race, location, results } = form;
+  const { id, startDate, endDate, race, location, results } = form;
+
+  const isError = error_id === id;
 
   return (
     <div className="editschedule-container">
-      <div className="editschedule">
+      <div>
+        {errors &&
+          isError &&
+          errors.length > 0 &&
+          errors.map((o) => (
+            <div key={v4()} style={{ color: "red" }}>
+              {o.msg}
+            </div>
+          ))}
+      </div>
+      <div className="editschedule-inputs">
         <Input
           className="editSchedule-input"
           name="race"
@@ -34,7 +53,7 @@ const EditSchedule = ({ schedule, errors, updateSchedule, loading }) => {
           placeholder="Race"
           value={race}
           onChange={onChange}
-          error={errors && errors.find((o) => o.param === "race")}
+          error={isError && errors && errors.find((o) => o.param === "race")}
         />
         <Input
           className="editSchedule-input"
@@ -43,7 +62,9 @@ const EditSchedule = ({ schedule, errors, updateSchedule, loading }) => {
           placeholder="Start Date"
           value={startDate}
           onChange={onChange}
-          error={errors && errors.find((o) => o.param === "startDate")}
+          error={
+            isError && errors && errors.find((o) => o.param === "startDate")
+          }
         />
         <Input
           className="editSchedule-input"
@@ -52,7 +73,7 @@ const EditSchedule = ({ schedule, errors, updateSchedule, loading }) => {
           placeholder="End Date"
           value={endDate}
           onChange={onChange}
-          error={errors && errors.find((o) => o.param === "endDate")}
+          error={isError && errors && errors.find((o) => o.param === "endDate")}
         />
         <Input
           className="editSchedule-input"
@@ -61,7 +82,9 @@ const EditSchedule = ({ schedule, errors, updateSchedule, loading }) => {
           placeholder="Location"
           value={location}
           onChange={onChange}
-          error={errors && errors.find((o) => o.param === "location")}
+          error={
+            isError && errors && errors.find((o) => o.param === "location")
+          }
         />
         <Input
           className="editSchedule-input"
@@ -70,7 +93,7 @@ const EditSchedule = ({ schedule, errors, updateSchedule, loading }) => {
           placeholder="Results"
           value={results}
           onChange={onChange}
-          error={errors && errors.find((o) => o.param === "results")}
+          error={isError && errors && errors.find((o) => o.param === "results")}
         />
         <div className="editmember-btns-container">
           <GenericButton
@@ -92,6 +115,8 @@ const Members = ({
   schedule,
   updateSchedule,
   refresh,
+  errors,
+  error_id,
 }) => {
   useEffect(() => {
     loadSchedule();
@@ -108,6 +133,8 @@ const Members = ({
           schedule={o}
           updateSchedule={updateSchedule}
           loading={loading}
+          errors={errors}
+          error_id={error_id}
         />
       ))}
     </div>
@@ -118,6 +145,8 @@ const mapStateToProps = (state) => ({
   schedule: state.schedule.schedule,
   loading: state.schedule.loading,
   refresh: state.schedule.refresh,
+  errors: state.schedule.errors,
+  error_id: state.schedule.error_id,
 });
 
 const mapDispatchToProps = {

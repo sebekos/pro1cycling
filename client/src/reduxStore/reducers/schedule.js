@@ -12,6 +12,7 @@ const initialState = {
   schedule: [],
   loading: true,
   errors: null,
+  error_id: null,
   success: false,
   firstLoad: false,
   refresh: null,
@@ -38,11 +39,14 @@ function Schedule(state = initialState, action) {
         ...state,
         loading: false,
         refresh: uuid(),
+        errors: null,
+        error_id: null,
       };
     case SCHEDULE_ERROR:
       return {
         ...state,
-        errors: payload,
+        errors: payload && payload.errors,
+        error_id: payload && payload.error_id,
         loading: false,
       };
     default:

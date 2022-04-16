@@ -7,10 +7,10 @@ import { Navigate } from "react-router-dom";
 const index = ({ isAuth }) => {
   if (!isAuth) return <Navigate to="/login" />;
   return (
-    <>
+    <div style={{ paddingTop: 100 }}>
       <AddSchedule />
       <Schedule />
-    </>
+    </div>
   );
 };
 

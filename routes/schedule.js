@@ -35,10 +35,10 @@ router.post(
   "/",
   [
     auth,
-    check("startDate", "First name is required").isLength({ min: 3 }),
-    check("endDate", "Last name is required").isLength({ min: 3 }),
-    check("race", "Title is required").isLength({ min: 5 }),
-    check("location", "Info is required").isLength({ min: 5 }),
+    check("startDate", "Start date is required").isLength({ min: 3 }),
+    check("endDate", "End date is required").isLength({ min: 3 }),
+    check("race", "Race is required").isLength({ min: 5 }),
+    check("location", "Location is required").isLength({ min: 5 }),
   ],
   async (req, res) => {
     // Check inputs

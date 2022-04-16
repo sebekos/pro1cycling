@@ -39,8 +39,13 @@ export const updateSchedule = (form) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    const errors = err.response.data.errors;
     dispatch({
       type: SCHEDULE_ERROR,
+      payload: {
+        errors,
+        error_id: form.id,
+      },
     });
   }
 };

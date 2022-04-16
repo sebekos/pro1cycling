@@ -17,42 +17,6 @@ const partners = [
     link: "https://pinarello.com/",
     avatar_link: Partner2,
   },
-  {
-    title: "Pro 1 Realty Inc",
-    info: "@2021",
-    link: "https://pro1mainst.com/",
-    avatar_link: Partner1,
-  },
-  {
-    title: "Pinarello",
-    info: "@2021",
-    link: "https://pinarello.com/",
-    avatar_link: Partner2,
-  },
-  {
-    title: "Pro 1 Realty Inc",
-    info: "@2021",
-    link: "https://pro1mainst.com/",
-    avatar_link: Partner1,
-  },
-  {
-    title: "Pinarello",
-    info: "@2021",
-    link: "https://pinarello.com/",
-    avatar_link: Partner2,
-  },
-  {
-    title: "Pro 1 Realty Inc",
-    info: "@2021",
-    link: "https://pro1mainst.com/",
-    avatar_link: Partner1,
-  },
-  {
-    title: "Pinarello",
-    info: "@2021",
-    link: "https://pinarello.com/",
-    avatar_link: Partner2,
-  },
 ];
 
 const index = () => {
