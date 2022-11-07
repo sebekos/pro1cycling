@@ -1,5 +1,5 @@
 import React from "react";
-import LandingImg from "img/landing.jpg";
+import LandingImg from "img/landing2.jpg";
 import LogoImg from "img/fulllogo.png";
 
 const Cover = () => {
