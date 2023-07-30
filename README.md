@@ -17,3 +17,9 @@
 
 1. docker exec -it mysql-app mysql -u root -p
 2. CREATE DATABASE realty;
+
+# Database backup reload
+
+1. Send file after downloading to drive "scp -i PRIVATE_KEY_FILE export root@ADDRESS:/mnt"
+2. docker cp /mnt/backups/cycle_backup mysql-app:/cycle_backup
+3. docker exec -i mysql-app bash -c 'mysql -u root -p"PASSWORD" cycle < /cycle_backup'
