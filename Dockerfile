@@ -5,9 +5,9 @@ RUN rm -rf client
 COPY /client/build /app/client/build
 RUN npm ci --production
 
-FROM node:16-alpine
+FROM gcr.io/distroless/nodejs18-debian11
 ENV NODE_ENV=production
 WORKDIR /app
 COPY --from=builder /app .
-CMD [ "node", "server.js" ]
+CMD [ "server.js" ]
 

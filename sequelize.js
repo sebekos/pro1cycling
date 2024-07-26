@@ -7,16 +7,22 @@ const NewsModel = require("./models/news");
 const dotenv = require("dotenv");
 require("dotenv").config();
 
-const sequelize = new Sequelize(
-  process.env.NODE_ENV === "production"
-    ? process.env.DATABASE_URL
-    : process.env.MYSQL_DATABASE_URL,
-  {
-    dialect: "mysql",
-    logging: false,
-    query: { raw: true },
-  }
-);
+let sequelize
+
+try {
+  sequelize = new Sequelize(
+    process.env.MYSQL_DATABASE_URL,
+    {
+      dialect: "mysql",
+      logging: false,
+      query: { raw: true },
+    }
+  );
+} catch (error) {
+  console.log('SQL CONNECT ERROR')
+  console.log(process.env.MYSQL_DATABASE_URL)
+  console.log(error)
+}
 
 const User = UserModel(sequelize, Sequelize);
 const Team = TeamModel(sequelize, Sequelize);

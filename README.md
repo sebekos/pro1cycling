@@ -23,3 +23,13 @@
 1. Send file after downloading to drive "scp -i PRIVATE_KEY_FILE export root@ADDRESS:/mnt"
 2. docker cp /mnt/backups/cycle_backup mysql-app:/cycle_backup
 3. docker exec -i mysql-app bash -c 'mysql -u root -p"PASSWORD" cycle < /cycle_backup'
+
+# Linux 2023 deployment
+
+1. sudo -s
+2. yum update -y
+3. sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+4. sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+5. yum install docker
+6. sudo systemctl start docker
+7. sudo systemctl enable docker
