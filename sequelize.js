@@ -11,7 +11,7 @@ let sequelize
 
 try {
   sequelize = new Sequelize(
-    process.env.MYSQL_DATABASE_URL,
+    process.env.DATABASE_URL,
     {
       dialect: "mysql",
       logging: false,
@@ -20,8 +20,6 @@ try {
   );
 } catch (error) {
   console.log('SQL CONNECT ERROR')
-  console.log(process.env.MYSQL_DATABASE_URL)
-  console.log(error)
 }
 
 const User = UserModel(sequelize, Sequelize);
